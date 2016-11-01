@@ -1,4 +1,7 @@
 ## Code Review Checklist
+
+# Tenemos que ver que de aca precisamos y que no
+
 1. CI build passes and is green
   - Ask to make green first
 2. No CodeClimate issues
@@ -28,9 +31,7 @@
 * Evitar codigo confuso. KISS - [Keep it simple -S%$%id-](http://principles-wiki.net/principles:keep_it_simple_stupid)
 * Buscar metodos publicos que no necesitan serlo y volverlos privados 
 
-* Follow [api style guide](https://cagit.careerbuilder.com/CorpAppsCB/api-style-guide) when building APIs
-
-* [Handle exceptions](http://phrogz.net/programmingruby/tut_exceptions.html) gracefully
+* [Manejar exceptions](http://phrogz.net/programmingruby/tut_exceptions.html) de manera agradable/correcta
 
 * Evitar optimizacion prematura. [You aren't gonna need it](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it)
 * No reeinventar la rueda
@@ -38,45 +39,45 @@
     - Seguir principio [TAM](https://books.google.com/books?id=i6mZ0HBDPzsC&pg=PA214&lpg=PA214&dq=tam+test+tests+activity+maturity&source=bl&ots=pNh9Q-H4SD&sig=fnurOHkQdnx2pj4lHOlIsTGlLBA&hl=en&sa=X&ved=0ahUKEwifmfCYtbnNAhXGSSYKHdd-CjoQ6AEIHDAA#v=onepage&q&f=false) cuando se busca gemas
 
 ### Models
-* Keep models from becoming fat by moving complexity into modules, concerns and classes
-* All model and variable names should be immediately obvious and as short as possible without using abbreviations
-* Favor composition over inheritance
-* Use Active Record [associations](http://guides.rubyonrails.org/association_basics.html) and [finders](http://guides.rubyonrails.org/active_record_querying.html) effectively
-* Define [scopes](http://guides.rubyonrails.org/active_record_querying.html#scopes) for commonly-used queries
-  * Favor several small scopes over one large scope 
-  * Consolidate common chains of scopes into a single scope 
-* Use Active Record [validations](http://guides.rubyonrails.org/active_record_validations.html) for business logic
-  * Use [conditional validations](http://guides.rubyonrails.org/active_record_validations.html#conditional-validation) when appropriate
-* Use Active Record [callbacks](http://guides.rubyonrails.org/active_record_callbacks.html) for logic tied to an object's lifecycle (e.g. before saving)
-  * Simplify large transaction blocks through callbacks
-* Keep presentation logic out of the model
+* Evitar que los modelos se conviertan en 'fat models' moviendo complejidad a modulos, concerns o classes
+* Todos los nombres de modelos y variables deben ser inmediatamente obvios, tan cortos como sea posible y sin usar abreviaciones
+* Favorecer composicion sobre herencia
+* Usar asociaciones de Active Record [asociaciones](http://guides.rubyonrails.org/association_basics.html) y [finders](http://guides.rubyonrails.org/active_record_querying.html) efectivamente
+* Definir [scopes](http://guides.rubyonrails.org/active_record_querying.html#scopes) para queries comunmente usadas
+  * Favorecer varios scopes chicos y cortos sobre uno grande y largo 
+  * Consolidar cadenas de scopes muy usadas en un mismo scope 
+* Usar Active Record [validations](http://guides.rubyonrails.org/active_record_validations.html) para logica de negocio
+  * Usar [conditional validations](http://guides.rubyonrails.org/active_record_validations.html#conditional-validation) cuando es apropiado
+* Usar Active Record [callbacks](http://guides.rubyonrails.org/active_record_callbacks.html) para logica atada al ciclo de vida de un objeto (e.g. before saving, after saving)
+  * Simplificar transacciones largas a traves de callbacks
+* Mantener logica de presentacion fuera del modelo
 
 
 ### Controllers
-* Keep controllers thin and as close to the scaffold as possible
-* Use only one or two instance variables per action
-* Use [strong parameters](http://edgeguides.rubyonrails.org/action_controller_overview.html#strong-parameters) for security
-* Refactor non-RESTful actions into separate controller/resource
-* Move business logic to the model
-* Introduce a [service object](http://railscasts.com/episodes/398-service-objects) when your controller must coordinate between multiple models
-* Don't abuse session. When session is necessary store references instead of instances
+* Manetner controllers thin ('flacos') y lo mas parecido al default scaffold posible
+* Usar una o dos variables de instancia por action (cuantas menos mejor)
+* Usar [strong parameters](http://edgeguides.rubyonrails.org/action_controller_overview.html#strong-parameters) para seguridad
+* Refactorear non-RESTful actions en controller/resource
+* Mover logica de negocio a los modelos
+* Introducir un[service object](http://railscasts.com/episodes/398-service-objects) cuando el controlador debe coordinar con varios modelos
+* No abusar del uso de sesiones. Cuando una sesion es necesaria guardar referencias en vez de instancias
 
 ### Views
-* Avoid calling `.find` or `.find_by` inside views. Rely on instance variables declared in your controller for data.
-* Refactor into partials to make views clearer and easier to reuse
-  - pass variables in as locals 
-* Localize any static text
-* Use proper indentation for HTML and indent with 2 spaces
-* Move simple view logic into helpers. Move complex view logic into presenters
+* No llamar `.find` o `find_by` en las vistas. En cambio para acceder a datos llamar variables de instancia declaradas en el controlador.
+* Refactorear en `partials` para hacer las vistas mas reusables
+  - pasar variables entre views y partials como locals
+* Localizar texto statico y convertirlo. (referencia I18N gem)
+* Usar correcta indentacion para html, dos espacios.
+* Mover logica simple a helpers. Mover logica compleja a presenters
 
 ### Helpers
-* Don't pollute helpers with unnecessary methods
-* Remove helpers without methods
-* Group related helper methods into a presenter
-* Don't find resources in helpers. Pass them in as variables.
+* No llenar los helpers con metodos innecesarios
+* Remover helpers sin metodos
+* Agrupar helpers relacionados en presenters
+* No tener recursos en helpers. Pasarlos como variables.
 
 ### Tests
-* Unit test all public methods
+* Testear unitariamente todo los metodos publicos
 * Integration tests should focus on behavior and not the view itself
 * Every fixed defect should have an associated regression test
 * Avoid view and controller tests
@@ -90,14 +91,13 @@
 * Use [contexts](http://betterspecs.org/#contexts) to help organize tests. Start its description with `when` or `with`.
 
 ### Database
-* Use `seeds.rb` for seed data and create a [separate rake task](http://rails-4-0.railstutorial.org/book/updating_and_deleting_users#sec-sample_users) for sample data
-* Use identical casing for SQL Server columns
+* Usar `seeds.rb` para popular data o crear un [rake task separado](http://rails-4-0.railstutorial.org/book/updating_and_deleting_users#sec-sample_users) para data de ejemplo
 
 ### Config
-* Make sure Gemfile.lock gets committed when adding or updating gems
-* Be extra careful with environment files and double-check `production.rb` for the proper configuration
+* Asegurarse que Gemfile.lock se commita cuando se añaden o actualizan gemas
+* Ser muy cuidadoso con los archivos en 'environments' y sobre todo chequear `production.rb` para asegurar la correcta configuracion
 
-## Additional Resources
+## Recursos Adicionales - Rails
 * [Rails Antipatterns](http://www.goodreads.com/book/show/9765652-rails-antipatterns)
 * [The Rails Way](https://www.amazon.com/Rails-Way-Addison-Wesley-Professional-Ruby/dp/0321944275)
 * [Rails Guides](http://guides.rubyonrails.org/)
