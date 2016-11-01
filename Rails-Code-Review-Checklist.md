@@ -1,6 +1,6 @@
 ## Code Review Checklist
 
-# Tenemos que ver que de aca precisamos y que no
+### Tenemos que ver que de esta parte de CR checklist precisamos y que no
 
 1. CI build passes and is green
   - Ask to make green first
@@ -78,17 +78,16 @@
 
 ### Tests
 * Testear unitariamente todo los metodos publicos
-* Integration tests should focus on behavior and not the view itself
-* Every fixed defect should have an associated regression test
-* Avoid view and controller tests
-* Favor [one-liner syntax](https://relishapp.com/rspec/rspec-core/docs/subject/one-liner-syntax)
-* Avoid explicit use of subject. Use a [named subject](https://www.relishapp.com/rspec/rspec-core/docs/subject/explicit-subject#use-`subject(:name)`-to-define-a-memoized-helper-method) instead
-* Use [factories](https://cagit.careerbuilder.com/CorpAppsCB/wiki/wiki/Testing#factory-girl) to prepare test data 
-* Tests should run fast 
-* You should be able to understand a feature by reading its tests 
-* Use [shared examples](https://www.relishapp.com/rspec/rspec-core/docs/example-groups/shared-examples) to DRY up tests
-* Use [predicate matchers](https://www.relishapp.com/rspec/rspec-expectations/v/3-4/docs/built-in-matchers/predicate-matchers) whenever possible
-* Use [contexts](http://betterspecs.org/#contexts) to help organize tests. Start its description with `when` or `with`.
+* Test de integracion debe fijarse en el comportamiento y no solo en la vista
+* Evitar test de vistas y de controladores
+* Favorecer [sintaxis de una linea](https://relishapp.com/rspec/rspec-core/docs/subject/one-liner-syntax)
+* Evitar uso explicito de `subject`. Usar [subjects con nombre](https://www.relishapp.com/rspec/rspec-core/docs/subject/explicit-subject#use-`subject(:name)`-to-define-a-memoized-helper-method)
+* Usar [factories](https://cagit.careerbuilder.com/CorpAppsCB/wiki/wiki/Testing#factory-girl) para preparar data para tests 
+* Tests deben correr rapido
+* Tener en cuenta que se debe entender un feature solo leyendo sus tests correspondientes
+* Usar [shared examples](https://www.relishapp.com/rspec/rspec-core/docs/example-groups/shared-examples) para `DRY` tests
+* Usar [predicate matchers](https://www.relishapp.com/rspec/rspec-expectations/v/3-4/docs/built-in-matchers/predicate-matchers) cuando sea posible
+* Usar [contexts](http://betterspecs.org/#contexts) para organizar los tests. Empezar su descripcion con `when` or `with`.
 
 ### Database
 * Usar `seeds.rb` para popular data o crear un [rake task separado](http://rails-4-0.railstutorial.org/book/updating_and_deleting_users#sec-sample_users) para data de ejemplo
