@@ -19,20 +19,23 @@
 
 ## Code Quality Checklist
 
-### General Guidelines
-* Keep methods to 5 lines or less 
-* Keep classes to 100 lines or less 
-* Methods should have 3 or fewer arguments, with a preference for fewer 
-* Avoid abbreviations 
-* Clarity above all 
-* Avoid clever code. [Keep it simple](http://principles-wiki.net/principles:keep_it_simple_stupid)
-* Check for unnecessary public methods and turn them into private methods 
+### Lineamientos generales
+* Mantener metodos en 5 lineas o menos
+* Mantener clases en 100 lineas o menos 
+* Metodos deberian tener 3 variables o menos, preferencia de menos
+* Evitar abreviaciones (al nombrar metodos, variables y demas)
+* Claridad sobre todo - Facil lectura del codigo - Ser claro y conciso 
+* Evitar codigo confuso. KISS - [Keep it simple -S%$%id-](http://principles-wiki.net/principles:keep_it_simple_stupid)
+* Buscar metodos publicos que no necesitan serlo y volverlos privados 
+
 * Follow [api style guide](https://cagit.careerbuilder.com/CorpAppsCB/api-style-guide) when building APIs
+
 * [Handle exceptions](http://phrogz.net/programmingruby/tut_exceptions.html) gracefully
-* Avoid premature optimization. [You aren't gonna need it](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it)
-* Don’t reinvent the wheel
-    - Look for gems/libraries that solve things for you 
-    - Follow [TAM](https://books.google.com/books?id=i6mZ0HBDPzsC&pg=PA214&lpg=PA214&dq=tam+test+tests+activity+maturity&source=bl&ots=pNh9Q-H4SD&sig=fnurOHkQdnx2pj4lHOlIsTGlLBA&hl=en&sa=X&ved=0ahUKEwifmfCYtbnNAhXGSSYKHdd-CjoQ6AEIHDAA#v=onepage&q&f=false) when evaluating gems 
+
+* Evitar optimizacion prematura. [You aren't gonna need it](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it)
+* No reeinventar la rueda
+    - Buscar gemas o librerias que resuelvan lo que queremos hacer
+    - Seguir principio [TAM](https://books.google.com/books?id=i6mZ0HBDPzsC&pg=PA214&lpg=PA214&dq=tam+test+tests+activity+maturity&source=bl&ots=pNh9Q-H4SD&sig=fnurOHkQdnx2pj4lHOlIsTGlLBA&hl=en&sa=X&ved=0ahUKEwifmfCYtbnNAhXGSSYKHdd-CjoQ6AEIHDAA#v=onepage&q&f=false) cuando se busca gemas
 
 ### Models
 * Keep models from becoming fat by moving complexity into modules, concerns and classes
