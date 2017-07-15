@@ -1,25 +1,3 @@
-## Code Review Checklist
-
-### Tenemos que ver que de esta parte de CR checklist precisamos y que no
-
-1. CI build passes and is green
-  - Ask to make green first
-2. No CodeClimate issues
-  - Ask to fix first
-3. Story exists in VersionOne
-  - Review story description, understand scope and review acceptance tests
-4. Observe the behavior yourself from end to end
-5. Code meets standards of quality based on [Code Quality Checklist](https://cagit.careerbuilder.com/CorpAppsCB/wiki/wiki/Code-Review-Checklist#code-quality-checklist)
-6. [GitFlow](https://cagit.careerbuilder.com/CorpAppsCB/authorization_api/wiki/*CA-GitFlow) is followed
-  - Branch format
-  - Pull request naming
-  - Commit message format
-  - Commit organization
-    - Check need for squashing or reorganization
-7. Check if pull request has dependencies with the database or other apis
-8. Merge pull request to `develop` branch via GitHub
-9. Delete feature branch via GitHub
-
 ## Code Quality Checklist
 
 ### Lineamientos generales
@@ -95,6 +73,28 @@
 ### Config
 * Asegurarse que Gemfile.lock se commita cuando se añaden o actualizan gemas
 * Ser muy cuidadoso con los archivos en 'environments' y sobre todo chequear `production.rb` para asegurar la correcta configuracion
+
+## Code Review Checklist
+
+### Tenemos que ver que de esta parte de CR checklist precisamos y que no
+
+1. CI build passes and is green
+  - Ask to make green first
+2. No CodeClimate issues
+  - Ask to fix first
+3. Story exists in VersionOne
+  - Review story description, understand scope and review acceptance tests
+4. Observe the behavior yourself from end to end
+5. Code meets standards of quality based on [Code Quality Checklist](https://cagit.careerbuilder.com/CorpAppsCB/wiki/wiki/Code-Review-Checklist#code-quality-checklist)
+6. [GitFlow](https://cagit.careerbuilder.com/CorpAppsCB/authorization_api/wiki/*CA-GitFlow) is followed
+  - Branch format
+  - Pull request naming
+  - Commit message format
+  - Commit organization
+    - Check need for squashing or reorganization
+7. Check if pull request has dependencies with the database or other apis
+8. Merge pull request to `develop` branch via GitHub
+9. Delete feature branch via GitHub
 
 ## Recursos Adicionales - Rails
 * [Rails Antipatterns](http://www.goodreads.com/book/show/9765652-rails-antipatterns)
